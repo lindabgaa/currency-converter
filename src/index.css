@@ -1,0 +1,36 @@
+:root {
+  font-size: 62.5%;
+
+  --clr-white: #fff;
+  --clr-grey-100: hsl(0, 0%, 67%);
+  --clr-grey-800: hsl(220, 31%, 26%);
+  --clr-blue: hsl(222, 69%, 45%);
+  --clr-red: hsl(349, 100%, 35%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+
+  background: url("assets/background.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
