@@ -1,0 +1,155 @@
+h1 {
+  font-size: 4.4rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+p.description {
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+div.converter-container {
+  position: relative; /* !!!! */
+
+  max-width: 112rem; /* !!!! */
+  width: 95vw; /* !!!! */
+  height: 30rem;
+  padding: 4rem;
+
+  background-color: var(--clr-white);
+  color: var(--clr-grey-800);
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 2px 10px;
+
+  transition: height 0.5s ease-in-out; /* !!!! */
+}
+
+div.converter-input-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.flex-col {
+  position: relative; /* !!!! */
+
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+input,
+select {
+  max-width: 30rem; /* !!!! */
+  width: 24vw; /* !!!! */
+  padding: 2rem;
+
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+  cursor: default; /* !!!! */
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--clr-blue);
+}
+
+input {
+  height: 5rem;
+  font-size: 1.8rem;
+  border: 1px solid var(--clr-grey-100);
+}
+
+/* Removes the spinner in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Removes the spinner in Chrome */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::*/
+
+select {
+  appearance: none;
+  height: 30rem;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  padding-bottom: 0;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+  z-index: 2;
+}
+
+option {
+  white-space: normal;
+  padding: 1rem 0;
+}
+
+img.down-arrow-icon {
+  position: absolute;
+  width: 2.4rem;
+  height: 2.4rem;
+  top: 4.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+button.swap-button {
+  margin-top: 3rem;
+  width: 5rem;
+  height: 5rem;
+
+  border-radius: 50%;
+  border: 1px solid var(--clr-grey-100);
+  background-color: var(--clr-white);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1;
+  cursor: pointer;
+}
+
+img.swap-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+button.convert-button {
+  position: absolute;
+  right: 4rem;
+  bottom: 4rem;
+
+  padding: 1.4rem 2rem;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px;
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+button.convert-button:hover {
+  transform: scale(1.1);
+}
