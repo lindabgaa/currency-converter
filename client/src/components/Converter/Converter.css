@@ -1,0 +1,126 @@
+div.converter-container {
+  position: relative;
+  max-width: 110rem;
+  width: calc(100vw - 8rem);
+  height: 25rem;
+  padding: 3.2rem;
+  color: var(--clr-grey-800);
+  background-color: var(--clr-white);
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 2px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: height 0.5s ease-in-out;
+}
+
+div.converter-container.expand {
+  height: 32rem;
+}
+
+div.converter-input-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 5rem 1fr;
+  gap: 1rem;
+}
+
+label {
+  margin-bottom: 1rem;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+input {
+  padding: 2rem;
+  width: 100%;
+  font-size: var(--fs-base);
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-grey-300);
+  cursor: default;
+}
+
+button.swap-button {
+  margin-top: 3.2rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 1px solid var(--clr-grey-300);
+  background-color: var(--clr-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+}
+
+button.swap-button:hover {
+  background-color: var(--clr-grey-100);
+}
+
+button.convert-button {
+  position: absolute;
+  right: 4rem;
+  bottom: 4rem;
+  width: 18rem;
+  height: 4rem;
+  padding: 1.2rem 2.4rem;
+  border-radius: 1rem;
+  font-size: var(--fs-sm);
+  color: var(--clr-white);
+  background-color: var(--clr-blue);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+button.convert-button:hover {
+  transform: scale(1.1);
+}
+
+button.convert-button:disabled {
+  transform: none;
+  opacity: 0.7;
+  cursor: default;
+}
+
+@media screen and (max-width: 768px) {
+  div.converter-container {
+    height: 50rem;
+    padding: 2.4rem;
+  }
+
+  div.converter-container.expand {
+    height: 57rem;
+  }
+
+  div.converter-input-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  button.swap-button {
+    margin-top: 0;
+    justify-self: center;
+  }
+
+  button.swap-button img.swap-icon {
+    transform: rotate(90deg);
+  }
+
+  button.convert-button {
+    position: static;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  div.converter-container {
+    width: calc(100vw - 4rem);
+  }
+}

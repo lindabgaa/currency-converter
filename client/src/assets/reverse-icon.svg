@@ -1,0 +1,26 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .c {
+        stroke: hsl(231, 100%, 36%);
+      }
+      .c, .d {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .d {
+        stroke: hsl(231, 100%, 66%);
+      }
+    </style>
+  </defs>
+
+  <g id="b">
+    <line class="d" x1="20.5" y1="16.5" x2="3.5" y2="16.5" />
+    <line class="d" x1="3.54" y1="16.52" x2="7.99" y2="20.5" />
+    <line class="d" x1="3.54" y1="16.48" x2="7.99" y2="12.5" />
+    <line class="c" x1="3.5" y1="7.5" x2="20.5" y2="7.5" />
+    <line class="c" x1="20.46" y1="7.52" x2="16.01" y2="11.5" />
+    <line class="c" x1="20.46" y1="7.48" x2="16.01" y2="3.5" />
+  </g>
+</svg>
