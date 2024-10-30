@@ -11,6 +11,7 @@ div.converter-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   transition: height 0.5s ease-in-out;
 }
 
@@ -23,12 +24,6 @@ div.converter-input-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 5rem 1fr;
   gap: 1rem;
-}
-
-label {
-  margin-bottom: 1rem;
-  font-size: var(--fs-sm);
-  font-weight: 700;
 }
 
 input {
@@ -55,7 +50,8 @@ button.swap-button {
   transition: background-color 0.3s ease;
 }
 
-button.swap-button:hover {
+button.swap-button:hover,
+button.swap-button:active {
   background-color: var(--clr-grey-100);
 }
 
@@ -76,11 +72,15 @@ button.convert-button {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 button.convert-button:hover {
   transform: scale(1.1);
+}
+
+button.convert-button:active {
+  opacity: 0.7;
 }
 
 button.convert-button:disabled {
@@ -96,7 +96,7 @@ button.convert-button:disabled {
   }
 
   div.converter-container.expand {
-    height: 57rem;
+    height: 64rem;
   }
 
   div.converter-input-wrapper {
@@ -116,6 +116,10 @@ button.convert-button:disabled {
   button.convert-button {
     position: static;
     width: 100%;
+  }
+
+  button.convert-button:hover {
+    transform: none;
   }
 }
 

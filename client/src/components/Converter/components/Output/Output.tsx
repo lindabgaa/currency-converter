@@ -11,12 +11,12 @@ interface OutputProps {
   amount: number;
   fromCurrencyCode: string;
   toCurrencyCode: string;
-  fromCurrencyLabel: string;
-  toCurrencyLabel: string;
+  fromCurrencyName: string;
+  toCurrencyName: string;
 }
 
 const Output = forwardRef<HTMLDivElement, OutputProps>((props, ref) => {
-  const { amount, fromCurrencyCode, toCurrencyCode, fromCurrencyLabel, toCurrencyLabel } = props;
+  const { amount, fromCurrencyCode, toCurrencyCode, fromCurrencyName, toCurrencyName } = props;
 
   // ---- State to handle the conversion rate
   const [conversionRate, setConversionRate] = useState<number>(0);
@@ -56,19 +56,15 @@ const Output = forwardRef<HTMLDivElement, OutputProps>((props, ref) => {
 
   return (
     <div ref={ref} className="converter-output-wrapper hidden">
-      <p className="amount-display">
-        {formatNumber(amount)} {fromCurrencyLabel.substring(5)} =
-      </p>
+      <p className="amount-display">{`${formatNumber(amount, 2)} ${fromCurrencyName} = `}</p>
       <p className="converted-amount-display">
-        {convertedAmount > 0 ? formatNumber(convertedAmount, 3) : "0,00"} {toCurrencyLabel.substring(5)}
+        {convertedAmount > 0 ? formatNumber(convertedAmount) : "0,00"} {toCurrencyName}
       </p>
       <p className="conversion-rate-display">{`1 ${fromCurrencyCode} = ${formatNumber(
-        conversionRate,
-        3
+        conversionRate
       )} ${toCurrencyCode}`}</p>
       <p className="conversion-rate-display">{`1 ${toCurrencyCode} = ${formatNumber(
-        1 / conversionRate,
-        3
+        1 / conversionRate
       )} ${fromCurrencyCode}`}</p>
     </div>
   );

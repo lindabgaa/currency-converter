@@ -36,13 +36,11 @@ p.description {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   main {
     padding: 2rem;
   }
-}
 
-@media screen and (max-width: 480px) {
   p.description {
     font-size: var(--fs-sm);
   }

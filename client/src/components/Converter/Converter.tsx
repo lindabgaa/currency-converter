@@ -19,9 +19,9 @@ const Converter = () => {
   const [fromCurrencyCode, setFromCurrencyCode] = useState<string>("USD");
   const [toCurrencyCode, setToCurrencyCode] = useState<string>("EUR");
 
-  // ---- State to handle the label (e.g. USD - United States Dollar) of the selected currency
-  const [fromCurrencyLabel, setFromCurrencyLabel] = useState<string>("USD - United States Dollar");
-  const [toCurrencyLabel, setToCurrencyLabel] = useState<string>("EUR - Euro");
+  // ---- State to handle the name (e.g. United States Dollar) of the selected currency
+  const [fromCurrencyName, setFromCurrencyName] = useState<string>("United States Dollar");
+  const [toCurrencyName, setToCurrencyName] = useState<string>("Euro");
 
   // ---- State to handle if the conversion has been done
   const [hasConverted, setHasConverted] = useState<boolean>(false);
@@ -33,8 +33,8 @@ const Converter = () => {
     setToCurrencyCode(fromCurrencyCode);
 
     // ---- Swap the currencies label
-    setFromCurrencyLabel(toCurrencyLabel);
-    setToCurrencyLabel(fromCurrencyLabel);
+    setFromCurrencyName(toCurrencyName);
+    setToCurrencyName(fromCurrencyName);
   };
 
   // ---- Function to handle the style changes when the user clicks the convert button
@@ -60,15 +60,16 @@ const Converter = () => {
     <div ref={containerRef} className="converter-container">
       <div className="converter-input-wrapper">
         {/* ---- Amount Input */}
-        <AmountInput setAmount={setAmount} />
+        <AmountInput fromCurrencyCode={fromCurrencyCode} setAmount={setAmount} />
 
         {/* ---- Currency From Input */}
         <CurrencyInput
           label="From"
           id="currency-from"
+          currencyCode={fromCurrencyCode}
           setCurrencyCode={setFromCurrencyCode}
-          currencyLabel={fromCurrencyLabel}
-          setCurrencyLabel={setFromCurrencyLabel}
+          currencyName={fromCurrencyName}
+          setCurrencyName={setFromCurrencyName}
         />
 
         {/* ---- Reverse Button */}
@@ -80,9 +81,10 @@ const Converter = () => {
         <CurrencyInput
           label="To"
           id="currency-to"
+          currencyCode={toCurrencyCode}
           setCurrencyCode={setToCurrencyCode}
-          currencyLabel={toCurrencyLabel}
-          setCurrencyLabel={setToCurrencyLabel}
+          currencyName={toCurrencyName}
+          setCurrencyName={setToCurrencyName}
         />
       </div>
 
@@ -92,8 +94,8 @@ const Converter = () => {
         amount={amount}
         fromCurrencyCode={fromCurrencyCode}
         toCurrencyCode={toCurrencyCode}
-        fromCurrencyLabel={fromCurrencyLabel}
-        toCurrencyLabel={toCurrencyLabel}
+        fromCurrencyName={fromCurrencyName}
+        toCurrencyName={toCurrencyName}
       />
 
       {/* ---- Convert Button */}

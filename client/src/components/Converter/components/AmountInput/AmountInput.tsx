@@ -9,7 +9,7 @@ interface AmountInputProps {
 }
 
 const AmountInput = ({ setAmount }: AmountInputProps) => {
-  const [inputValue, setInputValue] = useState<string>(formatNumber(7));
+  const [inputValue, setInputValue] = useState<string>(formatNumber(7, 2));
 
   const [amountError, setAmountError] = useState<string>("");
 
@@ -38,7 +38,7 @@ const AmountInput = ({ setAmount }: AmountInputProps) => {
   const handleAmountInputBlur = () => {
     const inputNumber = parseFloat(inputValue);
     if (!isNaN(inputNumber)) {
-      setInputValue(formatNumber(inputNumber));
+      setInputValue(formatNumber(inputNumber, 2));
     }
   };
 
