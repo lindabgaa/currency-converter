@@ -1,9 +1,9 @@
 # Currency Converter - React/Node.js Project
 
 ![Project Status](https://img.shields.io/badge/Project%20Status-In%20Progress-orange?style=flat-square)
+[![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fcurrency-converter-server-2bge.onrender.com%2Fapi%2Fstatus&style=flat-square)](https://stats.uptimerobot.com/Upe7finkYZ/797948379)
 [![CodeFactor](https://www.codefactor.io/repository/github/lindabgaa/currency-converter/badge?style=flat-square)](https://www.codefactor.io/repository/github/lindabgaa/currency-converter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fcurrency-converter-server-2bge.onrender.com%2Fapi%2Fstatus&style=flat-square)](https://stats.uptimerobot.com/Upe7finkYZ/797948379)
 
 This project is a user-friendly currency converter built with **TypeScript**, **React**, and **CSS**. It uses the **Vite** build tool for fast development. The application allows users to easily convert currencies by specifying the amount, the source currency, and the target currency with just a few clicks. It ensures accurate conversions by integrating with a **Node.js** backend that handles **API requests** to fetch real-time exchange rates.
 The frontend is deployed on **Vercel**, while the server is hosted on **Render**.
@@ -27,10 +27,10 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 - Install dependencies: `npm install`
 - Create an .env file with the following content :
 
-  - `PORT` # The port on which your API will run locally (e.g., 8080)
-  - `CORS_ORIGINS` # Allowed origins for CORS requests
+  - `PORT` # The port on which your API will run locally (e.g., `8080`)
+  - `CORS_ORIGINS` # Allowed origins for CORS requests (e.g., `http://localhost:PORT,https://YOUR_DOMAIN.com`)
   - `EXCHANGERATE_API_KEY` # Your exchangerates API key
-  - `EXCHANGERATE_API_BASE_URL` # (e.g., https://api.exchangeratesapi.io/v1/)
+  - `EXCHANGERATE_API_BASE_URL` # (e.g., `https://api.exchangeratesapi.io/v1/`)
 
 - Start the development server: `npm run dev`
 
