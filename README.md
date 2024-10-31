@@ -23,24 +23,22 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 3. **Create an account on** [exchangeratesapi.io](https://exchangeratesapi.io/)
 4. **Set up the Server**
 
-- Naviguate to the server directory : `cd server`
-- Install dependencies: `npm install`
-- Create an .env file with the following content :
-
-  - `PORT` (e.g., `8080`)
-  - `CORS_ORIGINS` (e.g., `http://localhost:PORT,https://YOUR_DOMAIN.com`)
-  - `EXCHANGERATE_API_KEY` # Your exchangerates API key
-  - `EXCHANGERATE_API_BASE_URL` # (e.g., `https://api.exchangeratesapi.io/v1/`)
-
-- Start the development server: `npm run dev`
+   - Naviguate to the server directory : `cd server`
+   - Install dependencies: `npm install`
+   - Create an .env file with the following content :
+     - `PORT` (e.g., `8080`)
+     - `CORS_ORIGINS` (e.g., `http://localhost:PORT,https://YOUR_DOMAIN.com`)
+     - `EXCHANGERATE_API_KEY` # Your exchangerates API key
+     - `EXCHANGERATE_API_BASE_URL` # (e.g., `https://api.exchangeratesapi.io/v1/`)
+   - Start the development server: `npm run dev`
 
 5. **Set up the Client**
 
-- Navigate to the client directory: `cd ../client`
-- Install dependencies: `npm install`
-- Create an .env file with the following content :
-  - `VITE_URL_SERVER` # The URL where the server is hosted in production
-- Start the client application : `npm run dev`
+   - Navigate to the client directory: `cd ../client`
+   - Install dependencies: `npm install`
+   - Create an .env file with the following content :
+     - `VITE_URL_SERVER` # The URL where the server is hosted in production
+   - Start the client application : `npm run dev`
 
 ## Endpoint /api/status
 
