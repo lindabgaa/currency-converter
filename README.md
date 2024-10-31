@@ -18,29 +18,29 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 
 ## Installation & Setup
 
-1. Clone the repository: `git clone https://github.com/lindabgaa/currency-converter.git`
-2. Navigate to the project folder: `cd currency-converter`
-3. Create an account on [exchangerates](https://exchangeratesapi.io/)
-4. Set up the Server
+1. **Clone the repository**: `git clone https://github.com/lindabgaa/currency-converter.git`
+2. **Navigate to the project folder**: `cd currency-converter`
+3. **Create an account on** [exchangeratesapi.io](https://exchangeratesapi.io/)
+4. **Set up the Server**
 
-- `cd server`
-- `npm install`
-- Create an .env file :
+- Naviguate to the server directory : `cd server`
+- Install dependencies: `npm install`
+- Create an .env file with the following content :
 
   - `PORT` # The port on which your API will run locally (e.g., 8080)
   - `CORS_ORIGINS` # Allowed origins for CORS requests
   - `EXCHANGERATE_API_KEY` # Your exchangerates API key
   - `EXCHANGERATE_API_BASE_URL` # (e.g., https://api.exchangeratesapi.io/v1/)
 
-- `npm run dev`
+- Start the development server: `npm run dev`
 
-5. Set up the Client
+5. **Set up the Client**
 
-- `cd ../client`
-- `npm install`
-- Create an .env file :
+- Navigate to the client directory: `cd ../client`
+- Install dependencies: `npm install`
+- Create an .env file with the following content :
   - `VITE_URL_SERVER` # The URL where the server is hosted in production
-- `npm run dev`
+- Start the client application : `npm run dev`
 
 ## License
 
