@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 // ---- Function to get currencies list from the API
 export const fetchCurrenciesFromAPI = async () => {
   try {
-    const response = await axios.get("http://localhost:8080/api/currencies/list");
+    const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/currencies/list`);
     const data = response.data.symbols;
 
     // ---- Convert the object to an array of objects
@@ -20,7 +20,7 @@ export const fetchCurrenciesFromAPI = async () => {
 // ---- Function to get conversion result from the API
 export const fetchConversionResultFromAPI = async (from: string, to: string, amount: number) => {
   try {
-    const response = await axios.get("http://localhost:8080/api/conversion/result", {
+    const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/conversion/result`, {
       params: {
         from,
         to,

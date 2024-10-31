@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: process.env.CORS_ORIGINS,
+  origin: process.env.CORS_ORIGINS.split(","),
 };
 
 app.use(cors(corsOptions));
