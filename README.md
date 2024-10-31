@@ -8,19 +8,19 @@
 This project is a user-friendly currency converter built with **TypeScript**, **React**, and **CSS**. It uses the **Vite** build tool for fast development. The application allows users to easily convert currencies by specifying the amount, the source currency, and the target currency with just a few clicks. It ensures accurate conversions by integrating with a **Node.js** backend that handles **API requests** to fetch real-time exchange rates.
 The frontend is deployed on **Vercel**, while the server is hosted on **Render**.
 
-[Demo](https://currency-converter-pi-six.vercel.app/)
+**[Demo](https://currency-converter-pi-six.vercel.app/)**
 
 ## Tech Stack
 
 - **Frontend**: React/Vite, Axios, TypeScript, CSS
 - **Backend**: Node.js, Express, Axios
-- **API**: [exchangeratesapi.io](https://exchangeratesapi.io/)
+- **API**: **[exchangeratesapi.io](https://exchangeratesapi.io/)**
 
 ## Installation & Setup
 
 1. **Clone the repository**: `git clone https://github.com/lindabgaa/currency-converter.git`
 2. **Navigate to the project folder**: `cd currency-converter`
-3. **Create an account on** [exchangeratesapi.io](https://exchangeratesapi.io/)
+3. **Create an account on [exchangeratesapi.io](https://exchangeratesapi.io/)**
 4. **Set up the Server**
 
    - Navigate to the server directory : `cd server`
@@ -40,9 +40,9 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
      - `VITE_URL_SERVER` # The URL where the server is hosted in production
    - Start the client application : `npm run dev`
 
-## Endpoint /api/status
+## /api/status
 
-The `/api/status` endpoint uses [Uptime Robot](https://uptimerobot.com/) to display the API’s current status (online or offline), enabling the status badge in GitHub.
+The `/api/status` route uses **[Uptime Robot](https://uptimerobot.com/)** to display the API’s current status (online or offline), enabling the status badge in GitHub.
 
 **Note**: If you prefer not to include this endpoint, make sure to:
 
@@ -56,7 +56,7 @@ To set up this endpoint, follow these steps:
 
    - After logging in, click on “New Monitor”.
    - Choose “HTTP(s)” as the monitor type.
-   - Enter the URL of your API. (e.g., `https://YOUR_DOMAIN.com/api/currencies/list`)
+   - Enter the URL you want to monitor (e.g., `https://YOUR_DOMAIN.com/api/currencies/list`).
    - Set the monitoring interval (e.g., 5 minutes).
    - Click “Create Monitor”.
 
@@ -66,7 +66,7 @@ To set up this endpoint, follow these steps:
 
 4. **Obtain your Monitor ID:**
 
-   - You can use [Hoppscotch](https://hoppscotch.io/) to make a quick POST request to `https://api.uptimerobot.com/v2/getMonitors?api_key=YOUR_KEY` using your API key. The response will contain the ID of your monitor.
+   - You can use **[Hoppscotch](https://hoppscotch.io/)** to make a quick POST request to `https://api.uptimerobot.com/v2/getMonitors?api_key=YOUR_KEY` using your API key. The response will contain the ID of your monitor.
 
 5. **Set up environment variables in your server .env file:**
 
@@ -91,4 +91,4 @@ To set up this endpoint, follow these steps:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+This project is licensed under the MIT License. See the **[LICENSE](LICENSE)** file for more information.
