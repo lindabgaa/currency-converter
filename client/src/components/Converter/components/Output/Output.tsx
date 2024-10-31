@@ -1,8 +1,6 @@
 import { forwardRef, useEffect, useState } from "react";
-
+import { fetchConversionResultFromAPI } from "../../../../api";
 import { formatNumber } from "../../../../utils";
-
-import { getConversionResult } from "../../../../api";
 
 import "./Output.css";
 
@@ -17,18 +15,13 @@ interface OutputProps {
 
 const Output = forwardRef<HTMLDivElement, OutputProps>((props, ref) => {
   const { amount, fromCurrencyCode, toCurrencyCode, fromCurrencyName, toCurrencyName } = props;
-
-  // ---- State to handle the conversion rate
   const [conversionRate, setConversionRate] = useState<number>(0);
-
-  // ---- State to handle the conversion result
   const [convertedAmount, setConvertedAmount] = useState<number>(0);
 
-  // ---- useEffect to fetch conversion result from the API when the component mounts and when the amount, fromCurrencyCode, or toCurrencyCode changes
   useEffect(() => {
-    const getOutputData = async () => {
+    const loadConversionResults = async () => {
       try {
-        const rate = await getConversionResult(fromCurrencyCode, toCurrencyCode, 1);
+        const rate = await fetchConversionResultFromAPI(fromCurrencyCode, toCurrencyCode, 1);
         if (rate) {
           setConversionRate(rate);
         }
@@ -38,25 +31,21 @@ const Output = forwardRef<HTMLDivElement, OutputProps>((props, ref) => {
           return;
         }
 
-        const convertedAmount = await getConversionResult(fromCurrencyCode, toCurrencyCode, amount);
+        const convertedAmount = await fetchConversionResultFromAPI(fromCurrencyCode, toCurrencyCode, amount);
         if (convertedAmount) {
           setConvertedAmount(convertedAmount);
         }
       } catch (error) {
-        if (error instanceof Error) {
-          console.error("Error getting output data (conversion rate, converted amount):", error.message);
-        } else {
-          console.error("Error getting output data (conversion rate, converted amount): Unknown error");
-        }
+        console.error("Error loading conversion results:", error instanceof Error ? error.message : "Unknown error");
       }
     };
 
-    getOutputData();
+    loadConversionResults();
   }, [amount, fromCurrencyCode, toCurrencyCode]);
 
   return (
     <div ref={ref} className="converter-output-wrapper hidden">
-      <p className="amount-display">{`${formatNumber(amount, 2)} ${fromCurrencyName} = `}</p>
+      <p className="amount-display">{`${formatNumber(amount)} ${fromCurrencyName} = `}</p>
       <p className="converted-amount-display">
         {convertedAmount > 0 ? formatNumber(convertedAmount) : "0,00"} {toCurrencyName}
       </p>

@@ -1,20 +1,20 @@
+require("dotenv").config();
+
 const express = require("express");
 const axios = require("axios");
-const dotenv = require("dotenv");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 8080;
-const corsOptions = {
-  origin: "http://localhost:5173",
-};
+const PORT = process.env.PORT || 3000;
 
-dotenv.config();
+const corsOptions = {
+  origin: process.env.CORS_ORIGINS,
+};
 
 app.use(cors(corsOptions));
 
 // Test server
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "Hello from server" });
 });
 
@@ -26,7 +26,7 @@ if (!apiKey) {
   process.exit(1); // Stop the server if the API key is missing
 }
 
-app.get("/api/fetchCurrenciesList", async (req, res) => {
+app.get("/api/currencies/list", async (req, res) => {
   const endPoint = "symbols";
   const params = `?access_key=${apiKey}`;
   const url = baseUrl + endPoint + params;
@@ -38,26 +38,30 @@ app.get("/api/fetchCurrenciesList", async (req, res) => {
     // If the external API returns an error, use its status code
     if (error.response) {
       res.status(error.response.status).json({
-        message: "Failed to fetch currencies list from external API",
-        error: `${error.response.status} (${error.response.statusText})`,
+        error: {
+          message: "Failed to fetch currencies list from external API",
+          detail: `${error.response.status} (${error.response.statusText})`,
+        },
       });
     } else {
       // For other types of errors (such as network issues), return a 500 status
-      res
-        .status(500)
-        .json({ message: "Internal server error", error: error.message });
+      res.status(500).json({
+        error: { message: "Internal server error", detail: error.message },
+      });
     }
   }
 });
 
-app.get("/api/fetchConversionResult", async (req, res) => {
+app.get("/api/conversion/result", async (req, res) => {
   const { from, to, amount } = req.query;
 
   // if any of the parameters are missing, return a 400 status
   if (!from || !to || !amount) {
     return res.status(400).json({
-      message: "Parameters 'from', 'to', and 'amount' are required.",
-      error: "Missing required parameters",
+      error: {
+        message: "Missing required parameters",
+        detail: "Parameters 'from', 'to', and 'amount' are required.",
+      },
     });
   }
 
@@ -75,13 +79,17 @@ app.get("/api/fetchConversionResult", async (req, res) => {
   } catch (error) {
     if (error.response) {
       res.status(error.response.status).json({
-        message: "Failed to fetch conversion result from external API",
-        error: `${error.response.status} (${error.response.statusText})`,
+        error: {
+          message: "Failed to fetch conversion result from external API",
+          detail: `${error.response.status} (${error.response.statusText})`,
+        },
       });
     } else {
       res.status(500).json({
-        message: "Internal server error",
-        error: error.message,
+        error: {
+          message: "Internal server error",
+          detail: error.message,
+        },
       });
     }
   }

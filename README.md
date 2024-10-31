@@ -1,4 +1,4 @@
-# Currency Converter - React Project
+# Currency Converter - React/Vite Project
 
 ![Project Status](https://img.shields.io/badge/Project%20Status-In%20Progress-orange?style=flat-square)
 [![CodeFactor](https://www.codefactor.io/repository/github/lindabgaa/currency-converter/badge?style=flat-square)](https://www.codefactor.io/repository/github/lindabgaa/currency-converter)

@@ -1,6 +1,5 @@
-export const formatNumber = (number: number, decimalPlaces: number = 2) => {
-  return number.toLocaleString(undefined, {
-    minimumFractionDigits: decimalPlaces,
-    maximumFractionDigits: decimalPlaces,
-  });
+export const formatNumber = (value: number): string => {
+  const [integerPart, decimalPart] = value.toFixed(2).split(".");
+  const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return `${formattedInteger}.${decimalPart}`;
 };

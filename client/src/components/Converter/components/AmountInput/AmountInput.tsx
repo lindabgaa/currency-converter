@@ -1,7 +1,5 @@
 import { useState } from "react";
-
 import { formatNumber } from "../../../../utils";
-
 import "./AmountInput.css";
 
 interface AmountInputProps {
@@ -9,8 +7,7 @@ interface AmountInputProps {
 }
 
 const AmountInput = ({ setAmount }: AmountInputProps) => {
-  const [inputValue, setInputValue] = useState<string>(formatNumber(7, 2));
-
+  const [inputValue, setInputValue] = useState<string>(formatNumber(7));
   const [amountError, setAmountError] = useState<string>("");
 
   // ---- Function to handle the amount input change
@@ -38,7 +35,7 @@ const AmountInput = ({ setAmount }: AmountInputProps) => {
   const handleAmountInputBlur = () => {
     const inputNumber = parseFloat(inputValue);
     if (!isNaN(inputNumber)) {
-      setInputValue(formatNumber(inputNumber, 2));
+      setInputValue(formatNumber(inputNumber));
     }
   };
 
@@ -53,9 +50,14 @@ const AmountInput = ({ setAmount }: AmountInputProps) => {
         autoComplete="off"
         onChange={handleAmountInputChange}
         onBlur={handleAmountInputBlur}
+        aria-label="Enter the amount to convert"
       />
 
-      {amountError && <p className="amount-error-message">{amountError}</p>}
+      {amountError && (
+        <p className="amount-error-message" role="alert">
+          {amountError}
+        </p>
+      )}
     </div>
   );
 };

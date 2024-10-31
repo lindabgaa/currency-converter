@@ -1,11 +1,8 @@
 import { useRef, useState } from "react";
-
+import reverseIcon from "../../assets/reverse-icon.svg";
 import AmountInput from "./components/AmountInput/AmountInput.tsx";
 import CurrencyInput from "./components/CurrencyInput/CurrencyInput.tsx";
 import Output from "./components/Output/Output.tsx";
-
-import reverseIcon from "../../assets/reverse-icon.svg";
-
 import "./Converter.css";
 
 const Converter = () => {
@@ -60,7 +57,7 @@ const Converter = () => {
     <div ref={containerRef} className="converter-container">
       <div className="converter-input-wrapper">
         {/* ---- Amount Input */}
-        <AmountInput fromCurrencyCode={fromCurrencyCode} setAmount={setAmount} />
+        <AmountInput setAmount={setAmount} />
 
         {/* ---- Currency From Input */}
         <CurrencyInput
@@ -70,11 +67,12 @@ const Converter = () => {
           setCurrencyCode={setFromCurrencyCode}
           currencyName={fromCurrencyName}
           setCurrencyName={setFromCurrencyName}
+          aria-label="Select the currency to convert from"
         />
 
         {/* ---- Reverse Button */}
-        <button type="button" className="swap-button" onClick={handleCurrencySwap}>
-          <img src={reverseIcon} className="swap-icon" alt="Swap Currencies" />
+        <button type="button" className="swap-button" aria-label="Swap the currencies" onClick={handleCurrencySwap}>
+          <img src={reverseIcon} className="swap-icon" alt="" />
         </button>
 
         {/* ---- Currency To Input */}
@@ -85,6 +83,7 @@ const Converter = () => {
           setCurrencyCode={setToCurrencyCode}
           currencyName={toCurrencyName}
           setCurrencyName={setToCurrencyName}
+          aria-label="Select the currency to convert to"
         />
       </div>
 
@@ -96,11 +95,18 @@ const Converter = () => {
         toCurrencyCode={toCurrencyCode}
         fromCurrencyName={fromCurrencyName}
         toCurrencyName={toCurrencyName}
+        aria-live="polite"
       />
 
       {/* ---- Convert Button */}
       {!hasConverted && (
-        <button type="button" className="convert-button" onClick={handleConvertButtonClick} disabled={amount === 0}>
+        <button
+          type="button"
+          className="convert-button"
+          onClick={handleConvertButtonClick}
+          disabled={amount === 0}
+          aria-disabled={amount === 0}
+        >
           Convert
         </button>
       )}

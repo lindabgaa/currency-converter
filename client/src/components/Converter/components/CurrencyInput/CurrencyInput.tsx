@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { getCurrenciesList } from "../../../../api.ts";
+import { fetchCurrenciesFromAPI } from "../../../../api.ts";
 
 import arrowIcon from "../../../../assets/arrow-icon.svg";
 import crossIcon from "../../../../assets/cross-icon.svg";
@@ -69,20 +69,17 @@ const CurrencyInput = ({
 
   // ---- useEffect to fetch currencies from the API when the component mounts
   useEffect(() => {
-    try {
-      getCurrenciesList().then((data) => {
-        if (data) {
-          setCurrencies(data as CurrenciesList[]);
-        }
-      });
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error("Error getting currencies list:", error.message);
-      } else {
-        console.error("Error getting currencies list: Unknown error");
+    const loadCurrencies = async () => {
+      try {
+        const data = await fetchCurrenciesFromAPI();
+        setCurrencies(data as CurrenciesList[]);
+      } catch (error) {
+        console.error("Error loading currencies list:", error instanceof Error ? error.message : "Unknown error");
       }
-    }
-  }, [currencies]);
+    };
+
+    loadCurrencies();
+  }, []);
 
   // ---- useEffect to handle the input focus and reset when the currency selector is opened/closed
   useEffect(() => {

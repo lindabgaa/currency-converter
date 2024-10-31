@@ -1,6 +1,5 @@
-import Converter from "./components/Converter/Converter.tsx";
-
 import "./App.css";
+import Converter from "./components/Converter/Converter.tsx";
 
 const App = () => {
   return (

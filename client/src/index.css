@@ -2,11 +2,9 @@
   font-size: 62.5%;
 
   --clr-white: #fff;
-
   --clr-grey-100: #f7f7f7;
   --clr-grey-300: rgba(200, 200, 200, 0.2);
   --clr-grey-800: hsl(220, 31%, 26%);
-
   --clr-blue: hsl(222, 69%, 45%);
   --clr-red: hsl(349, 100%, 35%);
 
@@ -37,11 +35,6 @@ body {
   background: url("assets/background.avif");
   background-repeat: no-repeat;
   background-size: cover;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .visible {
