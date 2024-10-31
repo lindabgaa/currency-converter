@@ -23,11 +23,11 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 3. **Create an account on** [exchangeratesapi.io](https://exchangeratesapi.io/)
 4. **Set up the Server**
 
-   - Naviguate to the server directory : `cd server`
+   - Navigate to the server directory : `cd server`
    - Install dependencies: `npm install`
-   - Create an .env file with the following content :
-     - `PORT` (e.g., `8080`)
-     - `CORS_ORIGINS` (e.g., `http://localhost:PORT,https://YOUR_DOMAIN.com`)
+   - Create an **.env** file with the following content :
+     - `PORT` # (e.g., `8080`)
+     - `CORS_ORIGINS` # (e.g., `http://localhost:PORT,https://YOUR_DOMAIN.com`)
      - `EXCHANGERATE_API_KEY` # Your exchangerates API key
      - `EXCHANGERATE_API_BASE_URL` # (e.g., `https://api.exchangeratesapi.io/v1/`)
    - Start the development server: `npm run dev`
@@ -36,13 +36,13 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 
    - Navigate to the client directory: `cd ../client`
    - Install dependencies: `npm install`
-   - Create an .env file with the following content :
+   - Create an **.env** file with the following content :
      - `VITE_URL_SERVER` # The URL where the server is hosted in production
    - Start the client application : `npm run dev`
 
 ## Endpoint /api/status
 
-The /api/status endpoint uses Uptime Robot to display the API’s current status (online or offline), enabling the status badge in GitHub.
+The `/api/status` endpoint uses [Uptime Robot](https://uptimerobot.com/) to display the API’s current status (online or offline), enabling the status badge in GitHub.
 
 **Note**: If you prefer not to include this endpoint, make sure to:
 
@@ -51,12 +51,12 @@ The /api/status endpoint uses Uptime Robot to display the API’s current status
 
 To set up this endpoint, follow these steps:
 
-1. **Create an account on** [Uptime Robot](https://uptimerobot.com/).
+1. **Create an account on [Uptime Robot](https://uptimerobot.com/).**
 2. **Create a new monitor:**
 
    - After logging in, click on “New Monitor”.
    - Choose “HTTP(s)” as the monitor type.
-   - Enter the URL of your API.
+   - Enter the URL of your API. (e.g., `https://YOUR_DOMAIN.com/api/currencies/list`)
    - Set the monitoring interval (e.g., 5 minutes).
    - Click “Create Monitor”.
 
@@ -70,9 +70,9 @@ To set up this endpoint, follow these steps:
 
 5. **Set up environment variables in your server .env file:**
 
-   - UPTIME_ROBOT_API_URL (e.g., `https://api.uptimerobot.com/v2/getMonitors`)
-   - UPTIME_ROBOT_API_KEY : # Your Uptime Robot API key
-   - UPTIME_ROBOT_MONITOR_ID : # ID of your Uptime Robot monitor
+   - `UPTIME_ROBOT_API_URL` (e.g., `https://api.uptimerobot.com/v2/getMonitors`)
+   - `UPTIME_ROBOT_API_KEY` : # Your Uptime Robot API key
+   - `UPTIME_ROBOT_MONITOR_ID` : # ID of your Uptime Robot monitor
 
 6. **Create a Status page:**
 
@@ -84,11 +84,10 @@ To set up this endpoint, follow these steps:
 
 7. **Create a badge on [Shields.io](https://shields.io/):**
 
-   - Choose to create an Endpoint Badge.
-   - Specify the URL of your API status endpoint (e.g., `https://YOUR_DOMAIN/api/v1/status`).
-   - Use the generated badge URL in your README to display the current status of your API.
-   - Set the link for the badge to your status page, allowing users to click on the badge to view the Uptime Robot
-   - status page directly.
+   - Choose to create an **Endpoint Badge**.
+   - Specify the URL of your API status endpoint (e.g., `https://YOUR_DOMAIN/api/status`).
+   - Use the generated badge URL in your**README** to display the current status of your API.
+   - Set the link for the badge to your **status page**, allowing users to click on the badge to view the Uptime Robot status page directly.
 
 ## License
 
