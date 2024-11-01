@@ -8,7 +8,7 @@ const domain =
     : "";
 
 // ---- Function to get currencies list from the Server
-export const fetchCurrenciesFromServer = async () => {
+export const fetchCurrenciesListFromServer = async () => {
   try {
     const url = `${domain}/api/currencies/list`;
     const response = await axios.get(url);
@@ -32,7 +32,8 @@ export const fetchCurrenciesFromServer = async () => {
 // ---- Function to get conversion result from the Server
 export const fetchConversionResultFromServer = async (from: string, to: string, amount: number) => {
   try {
-    const response = await axios.get(`${domain}/api/conversion/result`, {
+    const url = `${domain}/api/conversion/result`;
+    const response = await axios.get(url, {
       params: {
         from,
         to,

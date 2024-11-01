@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { fetchCurrenciesFromServer } from "../../../../api.ts";
+import { fetchCurrenciesListFromServer } from "../../../../api.ts";
 
 import arrowIcon from "../../../../assets/arrow-icon.svg";
 import crossIcon from "../../../../assets/cross-icon.svg";
@@ -19,6 +19,7 @@ interface CurrencyInputProps {
 interface CurrenciesList {
   code: string;
   name: string;
+  flag: string;
 }
 
 const CurrencyInput = ({
@@ -71,7 +72,8 @@ const CurrencyInput = ({
   useEffect(() => {
     const loadCurrencies = async () => {
       try {
-        const data = await fetchCurrenciesFromServer();
+        const data = await fetchCurrenciesListFromServer();
+
         setCurrencies(data as CurrenciesList[]);
       } catch (error) {
         console.error("Error loading currencies list:", error instanceof Error ? error.message : "Unknown error");

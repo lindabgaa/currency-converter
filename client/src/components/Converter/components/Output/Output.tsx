@@ -24,7 +24,7 @@ const Output = forwardRef<HTMLDivElement, OutputProps>((props, ref) => {
       return;
     }
 
-    const loadConversionResults = async () => {
+    const loadConversionResult = async () => {
       try {
         const data = await fetchConversionResultFromServer(fromCurrencyCode, toCurrencyCode, amount);
         const { conversion_rate: rate, conversion_result: result } = data;
@@ -36,7 +36,7 @@ const Output = forwardRef<HTMLDivElement, OutputProps>((props, ref) => {
       }
     };
 
-    loadConversionResults();
+    loadConversionResult();
   }, [amount, fromCurrencyCode, toCurrencyCode, hasConverted]);
 
   return (

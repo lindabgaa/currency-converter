@@ -1,8 +1,22 @@
 const axios = require("axios");
 
-const URL = process.env.UPTIME_ROBOT_API_URL;
-const API_KEY = process.env.UPTIME_ROBOT_API_KEY;
-const MONITOR_ID = process.env.UPTIME_ROBOT_MONITOR_ID;
+const URL = process.env.UPTIME_ROBOT_API_URL || "";
+const API_KEY = process.env.UPTIME_ROBOT_API_KEY || "";
+const MONITOR_ID = process.env.UPTIME_ROBOT_MONITOR_ID || "";
+
+const statusMapping = {
+  0: "Paused",
+  1: "Starting",
+  2: "Online",
+  9: "Offline",
+};
+
+const colorMapping = {
+  Paused: "#FFA500",
+  Starting: "#808080",
+  Online: "#66bb6a",
+  Offline: "#d32f2f",
+};
 
 const getApiStatus = async (req, res) => {
   try {
@@ -21,8 +35,8 @@ const getApiStatus = async (req, res) => {
     );
 
     const monitorData = response.data;
-    const status = monitorData.monitors[0].status === 2 ? "Online" : "Offline";
-    const color = status === "Online" ? "#66bb6a" : "#d32f2f";
+    const status = statusMapping[monitorData.monitors[0].status] || "N/A";
+    const color = colorMapping[status] || "#ffffff";
 
     return res.status(200).json({
       schemaVersion: 1,
@@ -32,8 +46,8 @@ const getApiStatus = async (req, res) => {
     });
   } catch (error) {
     if (error.response) {
-      return res.status(response.status).json({
-        error: `Failed to retrieve monitor status: ${response.statusText} || "Unknown error"`,
+      return res.status(error.response.status).json({
+        error: `Failed to retrieve monitor status: ${error.response.statusText} || "Unknown error"`,
       });
     } else {
       return res.status(500).json({
