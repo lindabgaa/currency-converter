@@ -1,6 +1,6 @@
 # Currency Converter - React/Node.js Project
 
-![Project Status](https://img.shields.io/badge/Project%20Status-In%20Progress-orange?style=flat-square)
+![Project Status](https://img.shields.io/badge/Project%20Status-Finished-green?style=flat-square)
 [![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fcurrency-converter-server-2bge.onrender.com%2Fapi%2Fstatus&style=flat-square)](https://stats.uptimerobot.com/Upe7finkYZ/797948379)
 [![CodeFactor](https://www.codefactor.io/repository/github/lindabgaa/currency-converter/badge?style=flat-square)](https://www.codefactor.io/repository/github/lindabgaa/currency-converter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
@@ -44,12 +44,12 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 
 ## /api/status
 
-The `/api/status` route uses **[Uptime Robot](https://uptimerobot.com/)** to display the API’s current status (online or offline), enabling the status badge in GitHub.
+The `/api/status` route uses **[Uptime Robot](https://uptimerobot.com/)** to display the API’s current status (paused, starting, online, offline), enabling the status badge in GitHub.
 
 **Note**: If you prefer not to include this endpoint, make sure to:
 
 1. Remove the `statusController.js` file from your server directory.
-2. Remove the corresponding route for `/api/status` from your routing setup.
+2. Remove the corresponding route for `/api/status` from the `apiRoutes.js` file.
 
 To set up this endpoint, follow these steps:
 
@@ -64,11 +64,11 @@ To set up this endpoint, follow these steps:
 
 3. **Retrieve your API key:**
 
-- Select “Integrations & API” to find your API Key.
+- Select **“Integrations & API”** to find your API Key.
 
 4. **Obtain your Monitor ID:**
 
-- You can use **[Hoppscotch](https://hoppscotch.io/)** to make a quick POST request to `https://api.uptimerobot.com/v2/getMonitors?api_key=YOUR_KEY` using your API key. The response will contain the ID of your monitor.
+- You can use **[Hoppscotch](https://hoppscotch.io/)** to make a quick **POST** request to `https://api.uptimerobot.com/v2/getMonitors?api_key=YOUR_KEY` using your API key. The response will contain the ID of your monitor.
 
 5. **Set up environment variables in your server .env file:**
 
@@ -89,7 +89,7 @@ To set up this endpoint, follow these steps:
 - Choose to create an **Endpoint Badge**.
 - Specify the URL of your API status endpoint (e.g., `https://YOUR_DOMAIN/api/status`).
 - Use the generated badge URL in your **README** to display the current status of your API.
-- Set the link for the badge to your **status page**, allowing users to click on the badge to view the Uptime Robot status page directly.
+- Set the link for the badge to your **status page**, allowing users to click on the badge to view the **Uptime Robot** status page directly.
 
 ## License
 
