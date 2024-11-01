@@ -91,6 +91,12 @@ To set up this endpoint, follow these steps:
 - Use the generated badge URL in your **README** to display the current status of your API.
 - Set the link for the badge to your **status page**, allowing users to click on the badge to view the **Uptime Robot** status page directly.
 
+## Possible Improvements
+
+- Add flags to currency list
+- Include symbols in amount input field (e.g., $, €, £)
+- Enhance formatting for numbers
+
 ## License
 
 This project is licensed under the MIT License. See the **[LICENSE](LICENSE)** file for more information.

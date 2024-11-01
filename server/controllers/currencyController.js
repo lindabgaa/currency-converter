@@ -4,7 +4,7 @@ const API_KEY = process.env.EXCHANGERATE_API_KEY || "";
 const BASE_URL = process.env.EXCHANGERATE_API_BASE_URL || "";
 
 // ---- Controller for the /currencies/list route
-const getCurrenciesList = async (req, res) => {
+const getCurrencyList = async (req, res) => {
   const endPoint = "codes";
   const url = `${BASE_URL}${API_KEY}/${endPoint}`;
 
@@ -33,4 +33,4 @@ const getCurrenciesList = async (req, res) => {
   }
 };
 
-module.exports = { getCurrenciesList };
+module.exports = { getCurrencyList };

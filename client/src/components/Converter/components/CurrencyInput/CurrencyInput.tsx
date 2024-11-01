@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { fetchCurrenciesListFromServer } from "../../../../api.ts";
+import { fetchCurrencyListFromServer } from "../../../../api.ts";
 
 import arrowIcon from "../../../../assets/arrow-icon.svg";
 import crossIcon from "../../../../assets/cross-icon.svg";
@@ -72,7 +72,7 @@ const CurrencyInput = ({
   useEffect(() => {
     const loadCurrencies = async () => {
       try {
-        const data = await fetchCurrenciesListFromServer();
+        const data = await fetchCurrencyListFromServer();
 
         setCurrencies(data as CurrenciesList[]);
       } catch (error) {
