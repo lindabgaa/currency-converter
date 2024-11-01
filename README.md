@@ -28,7 +28,7 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 - Create an **.env** file with the following content :
   - `PORT` # (e.g., `8080`)
   - `CORS_ORIGINS` # Comma-separated frontend URLs allowed to access your server's API
-  - `EXCHANGERATE_API_KEY` # Your API key from [ExchangeRate-API](https://www.exchangerate-api.com/)
+  - `EXCHANGERATE_API_KEY` # Your API key from **[ExchangeRate-API](https://www.exchangerate-api.com/)**
   - `EXCHANGERATE_API_BASE_URL` # (e.g., `https://v6.exchangerate-api.com/v6/`)
 - Start the development server: `npm run dev`
 

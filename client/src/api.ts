@@ -1,10 +1,10 @@
 import axios, { AxiosError } from "axios";
 
 const domain =
-  import.meta.env.VITE_ENV === "development" && import.meta.env.VITE_LOCAL_SERVER_URL
-    ? import.meta.env.VITE_LOCAL_SERVER_URL
-    : import.meta.env.VITE_ENV === "production" && import.meta.env.VITE_DEPLOYED_SERVER_URL
+  import.meta.env.VITE_ENV === "production" && import.meta.env.VITE_DEPLOYED_SERVER_URL
     ? import.meta.env.VITE_DEPLOYED_SERVER_URL
+    : import.meta.env.VITE_ENV === "development" && import.meta.env.VITE_LOCAL_SERVER_URL
+    ? import.meta.env.VITE_LOCAL_SERVER_URL
     : "";
 
 // ---- Function to get currencies list from the Server
