@@ -90,6 +90,7 @@ const Converter = () => {
       {/* ---- Conversion Result */}
       <Output
         ref={outputRef}
+        hasConverted={hasConverted}
         amount={amount}
         fromCurrencyCode={fromCurrencyCode}
         toCurrencyCode={toCurrencyCode}

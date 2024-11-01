@@ -1,11 +1,12 @@
 import { forwardRef, useEffect, useState } from "react";
-import { fetchConversionResultFromAPI } from "../../../../api";
+import { fetchConversionResultFromServer } from "../../../../api";
 import { formatNumber } from "../../../../utils";
 
 import "./Output.css";
 
 interface OutputProps {
   ref: React.RefObject<HTMLDivElement>;
+  hasConverted: boolean;
   amount: number;
   fromCurrencyCode: string;
   toCurrencyCode: string;
@@ -14,34 +15,29 @@ interface OutputProps {
 }
 
 const Output = forwardRef<HTMLDivElement, OutputProps>((props, ref) => {
-  const { amount, fromCurrencyCode, toCurrencyCode, fromCurrencyName, toCurrencyName } = props;
+  const { amount, hasConverted, fromCurrencyCode, toCurrencyCode, fromCurrencyName, toCurrencyName } = props;
   const [conversionRate, setConversionRate] = useState<number>(0);
   const [convertedAmount, setConvertedAmount] = useState<number>(0);
 
   useEffect(() => {
+    if (!hasConverted) {
+      return;
+    }
+
     const loadConversionResults = async () => {
       try {
-        const rate = await fetchConversionResultFromAPI(fromCurrencyCode, toCurrencyCode, 1);
-        if (rate) {
-          setConversionRate(rate);
-        }
+        const data = await fetchConversionResultFromServer(fromCurrencyCode, toCurrencyCode, amount);
+        const { conversion_rate: rate, conversion_result: result } = data;
 
-        if (amount <= 0) {
-          setConvertedAmount(0);
-          return;
-        }
-
-        const convertedAmount = await fetchConversionResultFromAPI(fromCurrencyCode, toCurrencyCode, amount);
-        if (convertedAmount) {
-          setConvertedAmount(convertedAmount);
-        }
+        setConversionRate(rate);
+        setConvertedAmount(result);
       } catch (error) {
         console.error("Error loading conversion results:", error instanceof Error ? error.message : "Unknown error");
       }
     };
 
     loadConversionResults();
-  }, [amount, fromCurrencyCode, toCurrencyCode]);
+  }, [amount, fromCurrencyCode, toCurrencyCode, hasConverted]);
 
   return (
     <div ref={ref} className="converter-output-wrapper hidden">

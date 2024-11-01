@@ -14,22 +14,22 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 
 - **Frontend**: React/Vite, Axios, TypeScript, CSS
 - **Backend**: Node.js, Express, Axios
-- **API**: **[exchangeratesapi.io](https://exchangeratesapi.io/)**
+- **API**: **[ExchangeRate-API](https://www.exchangerate-api.com/)**
 
 ## Installation & Setup
 
 1. **Clone the repository**: `git clone https://github.com/lindabgaa/currency-converter.git`
 2. **Navigate to the project folder**: `cd currency-converter`
-3. **Create an account on [exchangeratesapi.io](https://exchangeratesapi.io/)**
+3. **Create an account on [ExchangeRate-API](https://www.exchangerate-api.com/)**
 4. **Set up the Server**
 
 - Navigate to the server directory : `cd server`
 - Install dependencies: `npm install`
 - Create an **.env** file with the following content :
   - `PORT` # (e.g., `8080`)
-  - `CORS_ORIGINS` # (e.g., `http://localhost:PORT,https://YOUR_DOMAIN.com`)
-  - `EXCHANGERATE_API_KEY` # Your exchangerates API key
-  - `EXCHANGERATE_API_BASE_URL` # (e.g., `https://api.exchangeratesapi.io/v1/`)
+  - `CORS_ORIGINS` # Comma-separated frontend URLs allowed to access your server's API
+  - `EXCHANGERATE_API_KEY` # Your API key from [ExchangeRate-API](https://www.exchangerate-api.com/)
+  - `EXCHANGERATE_API_BASE_URL` # (e.g., `https://v6.exchangerate-api.com/v6/`)
 - Start the development server: `npm run dev`
 
 5. **Set up the Client**
@@ -37,7 +37,9 @@ The frontend is deployed on **Vercel**, while the server is hosted on **Render**
 - Navigate to the client directory: `cd ../client`
 - Install dependencies: `npm install`
 - Create an **.env** file with the following content :
-  - `VITE_URL_SERVER` # The URL where the server is hosted in production
+  - `VITE_ENV` # Runtime environment (set to 'development' or 'production')
+  - `VITE_LOCAL_SERVER_URL` # URL of your local server (e.g., `http://localhost:8080`)
+  - `VITE_DEPLOYED_SERVER_URL` # URL of your hosted server
 - Start the client application : `npm run dev`
 
 ## /api/status
@@ -70,9 +72,9 @@ To set up this endpoint, follow these steps:
 
 5. **Set up environment variables in your server .env file:**
 
-- `UPTIME_ROBOT_API_URL` (e.g., `https://api.uptimerobot.com/v2/getMonitors`)
-- `UPTIME_ROBOT_API_KEY` : # Your Uptime Robot API key
-- `UPTIME_ROBOT_MONITOR_ID` : # ID of your Uptime Robot monitor
+- `UPTIME_ROBOT_API_URL` # (e.g., `https://api.uptimerobot.com/v2/getMonitors`)
+- `UPTIME_ROBOT_API_KEY` # Your Uptime Robot API key
+- `UPTIME_ROBOT_MONITOR_ID` # ID of your Uptime Robot monitor
 
 6. **Create a Status page:**
 
