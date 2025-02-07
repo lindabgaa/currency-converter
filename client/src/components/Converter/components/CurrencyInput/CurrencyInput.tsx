@@ -51,7 +51,6 @@ const CurrencyInput = ({
       currency.name.toLowerCase().includes(inputValue.toLowerCase()) ||
       currency.code.toLowerCase().includes(inputValue.toLowerCase())
   );
-
   // ---- Function to handle the currency selection (when an option is selected from the dropdown)
   const handleCurrencySelection = (e: React.MouseEvent<HTMLLIElement>) => {
     e.stopPropagation();
